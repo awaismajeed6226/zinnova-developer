@@ -1,0 +1,177 @@
+:root {
+  --bg: #ffffff;
+  --text: #0f0f10;
+  --navy: #102a5c;
+  --muted: #4c5565;
+  --border: #e7e8eb;
+  --card: rgba(255, 255, 255, 0.84);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+}
+
+#particle-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.container {
+  width: min(1100px, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-wrap {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  color: var(--navy);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.3px;
+}
+
+nav {
+  display: flex;
+  gap: 1rem;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+nav a.active,
+nav a:hover {
+  color: var(--navy);
+  border-color: var(--navy);
+}
+
+main {
+  padding: 2rem 0 4rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.card {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  padding: 1.2rem 1.1rem;
+  box-shadow: 0 8px 30px rgba(16, 42, 92, 0.05);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--navy);
+  line-height: 1.2;
+  margin-top: 0;
+}
+
+p,
+li {
+  color: var(--text);
+}
+
+.hero p {
+  color: var(--muted);
+}
+
+.grid.two {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.button-row {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  border: 1px solid var(--border);
+  color: var(--text);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.btn.primary {
+  background: var(--navy);
+  color: white;
+  border-color: var(--navy);
+}
+
+.whatsapp-widget {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 5;
+  background: #25d366;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.whatsapp-widget .dot {
+  width: 8px;
+  height: 8px;
+  background: white;
+  border-radius: 999px;
+}
+
+@media (max-width: 800px) {
+  .grid.two {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    font-size: 0.92rem;
+  }
+}
