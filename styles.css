@@ -4,12 +4,10 @@
   --navy: #102a5c;
   --muted: #4c5565;
   --border: #e7e8eb;
-  --card: rgba(255, 255, 255, 0.84);
+  --card: rgba(255, 255, 255, 0.88);
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -34,7 +32,7 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 4;
+  z-index: 8;
   background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid var(--border);
@@ -52,13 +50,10 @@ body {
   color: var(--navy);
   text-decoration: none;
   font-weight: 800;
-  letter-spacing: 0.3px;
+  letter-spacing: .3px;
 }
 
-nav {
-  display: flex;
-  gap: 1rem;
-}
+nav { display: flex; gap: 1rem; flex-wrap: wrap; }
 
 nav a {
   color: var(--text);
@@ -75,7 +70,7 @@ nav a:hover {
 }
 
 main {
-  padding: 2rem 0 4rem;
+  padding: 2rem 0 3rem;
   display: grid;
   gap: 1rem;
 }
@@ -85,25 +80,65 @@ main {
   border-radius: 16px;
   background: var(--card);
   padding: 1.2rem 1.1rem;
-  box-shadow: 0 8px 30px rgba(16, 42, 92, 0.05);
+  box-shadow: 0 8px 30px rgba(16, 42, 92, .05);
+  transition: transform .25s ease, box-shadow .25s ease;
 }
 
-h1,
-h2,
-h3 {
+.animated-card {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: cardIn .65s ease forwards;
+}
+.delay-1 { animation-delay: .08s; }
+.delay-2 { animation-delay: .16s; }
+.delay-3 { animation-delay: .24s; }
+.delay-4 { animation-delay: .32s; }
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 38px rgba(16, 42, 92, .12);
+}
+
+.study-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.study-card::before {
+  content: "";
+  position: absolute;
+  inset: -150% -20%;
+  background: linear-gradient(120deg, transparent 40%, rgba(16, 42, 92, .12), transparent 60%);
+  transform: translateX(-50%);
+  animation: shimmer 5s linear infinite;
+}
+
+.study-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pill {
+  display: inline-block;
+  font-size: .82rem;
+  padding: .34rem .6rem;
+  border-radius: 999px;
+  border: 1px solid #c8d4ef;
   color: var(--navy);
-  line-height: 1.2;
-  margin-top: 0;
+  background: #f5f8ff;
+  font-weight: 700;
 }
 
-p,
-li {
-  color: var(--text);
+.result-row {
+  display: flex;
+  gap: .55rem;
+  flex-wrap: wrap;
 }
 
-.hero p {
-  color: var(--muted);
-}
+h1,h2,h3 { color: var(--navy); line-height: 1.2; margin-top: 0; }
+p,li { color: var(--text); }
+.hero p { color: var(--muted); }
 
 .grid.two {
   display: grid;
@@ -114,7 +149,7 @@ li {
 .button-row {
   margin-top: 1rem;
   display: flex;
-  gap: 0.75rem;
+  gap: .75rem;
   flex-wrap: wrap;
 }
 
@@ -124,54 +159,76 @@ li {
   justify-content: center;
   text-decoration: none;
   border-radius: 10px;
-  padding: 0.65rem 1rem;
+  padding: .65rem 1rem;
   font-weight: 700;
   border: 1px solid var(--border);
   color: var(--text);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(0,0,0,.07); }
+.btn.primary { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: rgba(255, 255, 255, .97);
 }
 
-.btn.primary {
-  background: var(--navy);
-  color: white;
-  border-color: var(--navy);
+.footer-wrap {
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
+
+.footer-wrap p {
+  margin: 0;
+  color: #2c3340;
+  font-size: .92rem;
+}
+
+.footer-wrap a { color: var(--navy); font-weight: 700; text-decoration: none; }
 
 .whatsapp-widget {
   position: fixed;
   right: 1rem;
   bottom: 1rem;
-  z-index: 5;
+  z-index: 12;
   background: #25d366;
   color: #fff;
   text-decoration: none;
-  padding: 0.75rem 1rem;
+  padding: .75rem 1rem;
   border-radius: 999px;
   font-weight: 700;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .2);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: .5rem;
 }
 
 .whatsapp-widget .dot {
   width: 8px;
   height: 8px;
-  background: white;
+  background: #fff;
   border-radius: 999px;
 }
 
-@media (max-width: 800px) {
-  .grid.two {
-    grid-template-columns: 1fr;
-  }
+@keyframes cardIn {
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  nav {
-    font-size: 0.92rem;
-  }
+@keyframes shimmer {
+  0% { transform: translateX(-40%) rotate(8deg); }
+  100% { transform: translateX(40%) rotate(8deg); }
+}
+
+@media (max-width: 980px) {
+  .study-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 800px) {
+  .grid.two { grid-template-columns: 1fr; }
+  nav { font-size: .92rem; }
 }
