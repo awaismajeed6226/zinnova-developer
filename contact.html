@@ -11,7 +11,9 @@
 
     <header class="site-header">
       <div class="container nav-wrap">
-        <a class="logo" href="index.html">Zinnova Tech</a>
+        <a class="logo" href="index.html" aria-label="Zinnova Tech Home">
+          <img src="assets/logo.svg" alt="Zinnova Tech logo" />
+        </a>
         <nav>
           <a href="index.html">Home</a>
           <a href="case-studies.html">Case Studies</a>
@@ -35,6 +37,7 @@
           <h2>Contact Information</h2>
           <ul>
             <li><strong>Email:</strong> info@zinnovatech.com</li>
+            <li><strong>Call:</strong> +1 225 733 2862</li>
             <li><strong>WhatsApp:</strong> +92 308 1890453</li>
             <li><strong>Hours:</strong> Monday - Friday, 9:00 AM - 6:00 PM</li>
             <li><strong>Service Area:</strong> Global Remote Services</li>
@@ -42,6 +45,25 @@
         </article>
 
         <article class="card animated-card delay-2">
+          <h2>Send Us Your Requirements</h2>
+          <form class="contact-form" action="#" method="post">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" required />
+
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" required />
+
+            <label for="phone">Phone / WhatsApp</label>
+            <input id="phone" name="phone" type="tel" required />
+
+            <label for="business-type">Business Type</label>
+            <input id="business-type" name="business_type" type="text" placeholder="Wholesaling, investment, brokerage, etc." />
+
+            <label for="message">Project Details</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button class="btn primary" type="submit">Submit Request</button>
+          </form>
           <h2>Schedule a Consultation</h2>
           <p>
             We assess your funnel, identify bottlenecks, and provide a phased implementation plan
@@ -55,6 +77,7 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
+          <img src="assets/logo.svg" alt="Zinnova Tech logo" class="footer-logo" />
           <h4>Zinnova Tech</h4>
           <p>Real estate automation systems designed for high-response, high-conversion operations.</p>
         </div>
@@ -64,12 +87,17 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="case-studies.html">Case Studies</a></li>
             <li><a href="team.html">Team</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms-and-conditions.html">Terms & Conditions</a></li>
           </ul>
         </div>
         <div>
           <h4>Contact</h4>
           <ul>
             <li><a href="mailto:info@zinnovatech.com">info@zinnovatech.com</a></li>
+            <li><a href="tel:+12257332862">Call: +1 225 733 2862</a></li>
+            <li><a href="https://wa.me/923081890453" target="_blank" rel="noopener noreferrer">WhatsApp: +92 308 1890453</a></li>
             <li><a href="https://wa.me/923081890453" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></li>
           </ul>
         </div>
